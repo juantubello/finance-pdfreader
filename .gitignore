@@ -1,0 +1,31 @@
+# Python
+_pycache_/
+*.pyc
+*.pyo
+*.pyd
+*.log
+
+# SQLite DB (ubicada en la carpeta data/)
+data/*.db
+
+# Virtual environments
+.env/
+venv/
+.venv/
+
+# Docker
+*.pid
+*.sock
+*.log
+.env
+.env.*
+
+# VSCode config (si usás VSCode)
+.vscode/
+
+# Mac / Linux
+.DS_Store
+*.swp
+
+#PDF
+*.pdf
