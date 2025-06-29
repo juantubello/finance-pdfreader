@@ -123,21 +123,28 @@ async def parse_pdf(file: UploadFile = File(...)):
         impuestos_detalles, saldo_total = extraer_impuestos(texto_total)
         
         # Construir JSON final
-        print(cami_total)
-        if (cami_total == "{'pesos': '', 'dolares': ''}"):
-            print("vacio")
-
-        resultado = {
-            "Juan": {
-                "Detail": juan_detalles,
-                "Total": juan_total
-            },
-            "Cami": {
-                "Detail": cami_detalles,
-                "Total": cami_total
-            },
-            "Total": saldo_total
+        resultado = ""
+        empty_values = (cami_total['pesos'])
+        if (empty_values == ""):
+            resultado = {
+             "Juan": {
+                    "Detail": juan_detalles,
+                    "Total": juan_total
+                },
+             "Total": saldo_total
         }
+        else:
+            resultado = {
+             "Juan": {
+                    "Detail": juan_detalles,
+                    "Total": juan_total
+                },
+             "Cami": {
+                   "Detail": cami_detalles,
+                    "Total": cami_total
+                },
+             "Total": saldo_total
+            }
 
         return JSONResponse(content=resultado)
     
